@@ -55,7 +55,7 @@ async def list_interactions(
     db: AsyncSession = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    query = select(Interaction).options(selectinload(Interaction.hcp))
+    query = select(Interaction).options(selectinload(Interaction.hcp)).where(Interaction.logged_by_user_id == current_user.id)
 
     if hcp_id is not None:
         query = query.where(Interaction.hcp_id == hcp_id)
@@ -78,7 +78,7 @@ async def get_interaction_count(
     db: AsyncSession = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    query = select(func.count(Interaction.id))
+    query = select(func.count(Interaction.id)).where(Interaction.logged_by_user_id == current_user.id)
 
     if hcp_id is not None:
         query = query.where(Interaction.hcp_id == hcp_id)
@@ -119,6 +119,9 @@ async def get_interaction(
 
     if not interaction:
         raise HTTPException(status_code=404, detail="Interaction not found")
+
+    if interaction.logged_by_user_id != current_user.id:
+        raise HTTPException(status_code=403, detail="Not authorized to view this interaction")
 
     return interaction
 
