@@ -1,0 +1,13 @@
+# Virtual env
+.venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+
+# DB
+*.sqlite3
+
+# Alembic
+alembic/versions/*.pyc

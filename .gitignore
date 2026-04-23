@@ -1,0 +1,86 @@
+# ========================
+# Secrets & Environment Variables
+# ========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+frontend/.env
+
+# ========================
+# Node / Frontend (React + Vite)
+# ========================
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build Output
+dist/
+dist-ssr/
+frontend/dist/
+build/
+
+# ========================
+# Python / Backend (FastAPI)
+# ========================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+backend/__pycache__/
+backend/app/__pycache__/
+
+# Virtual Environments
+.venv
+.venv/
+venv/
+ENV/
+backend/.venv/
+backend/venv/
+
+# SQLite / Databases
+*.sqlite3
+*.db
+backend/*.sqlite3
+backend/app/agent/*.sqlite3
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+
+# ========================
+# OS & IDE Specific
+# ========================
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
